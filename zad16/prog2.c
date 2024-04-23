@@ -12,11 +12,8 @@ int main() {
     char buffer[1024];
     struct sockaddr_in servaddr, cliaddr;
 
-    if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
-        perror("Nie można utworzyć gniazda");
-        exit(EXIT_FAILURE);
-    }
-
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    
     memset(&servaddr, 0, sizeof(servaddr));
     memset(&cliaddr, 0, sizeof(cliaddr));
 
@@ -24,11 +21,8 @@ int main() {
     servaddr.sin_addr.s_addr = INADDR_ANY;
     servaddr.sin_port = htons(PORT);
 
-    if (bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)) < 0) {
-        perror("Błąd bind");
-        exit(EXIT_FAILURE);
-    }
-
+    bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr));
+    
     int len, n;
     len = sizeof(cliaddr);
 

@@ -12,11 +12,8 @@ int main() {
     char *message = "IMIE I NAZWISKO";
     struct sockaddr_in servaddr;
 
-    if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
-        perror("Nie można utworzyć gniazda");
-        exit(EXIT_FAILURE);
-    }
-
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+ 
     memset(&servaddr, 0, sizeof(servaddr));
 
     servaddr.sin_family = AF_INET;
