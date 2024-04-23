@@ -1,0 +1,7 @@
+1. Potrzebny jest plik .c i Makefile 
+2. W prog.c musi byc dodane imie i nazwisko oraz nr indeksu 
+3. Jezeli make nie dziala to prawdopodobnie trzeba ustawic dobra wersje gcc za pomoca edytowanie drugiej linii makefile CC := gcc (ewentualnie konkretne wersje np CC := gcc-12 dla ver.12)
+4. Jezeli dziala to robi sie tak:
+5. laduje sie modul za pomoca "insmod prog.ko"
+6. usuwa sie modul za pomoca  "rmmod prog"
+7. wyswietla sie za pomoca "dmesg" i tam widac wasze imie i nazwisko 
