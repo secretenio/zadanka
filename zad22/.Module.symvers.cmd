@@ -1,0 +1,1 @@
+savedcmd_/home/essa/Desktop/zadanka/zad22/Module.symvers :=  scripts/mod/modpost -M -m       -o /home/essa/Desktop/zadanka/zad22/Module.symvers -T /home/essa/Desktop/zadanka/zad22/modules.order -i Module.symvers -e 

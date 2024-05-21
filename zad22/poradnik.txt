@@ -1,0 +1,47 @@
+1. Zmień linie (najpierw skopiuj a nie edytuj na codeshare OK?):
+	#define DEVICE NAME na swoja nazwe, 
+  #define TARGET_STRING na swoja imie i nazwisko, 
+  #define RESPONSE_STRING na swoj numer indeksu, 
+  nazwy zmiennych kz_init i kz_exit
+  ewentualnie ostatnie 3 linie z autorem, opisem itd
+
+2. Zapisz plik np. kz_driver.c
+
+3. Utwórz Makefile tak żeby pasował pod twój plik (przy kopiowaniu pamiętaj żeby poprawić tabulatory!!!) np. 
+
+obj-m += kz_driver.o
+
+all:
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+
+4. Piszesz po kolei
+	- make
+  - sudo insmod kz_driver.ko (twoja nazwa którą dałeś w Makefile)
+  
+5. Sprawdzasz czy sie załadowało za pomocą 
+lsmod | grep kz_driver
+
+6. Szukasz jaki numer urzadzenia jest przypisany 
+dmesg | grep "I was assigned major number"
+
+7. Tworzysz plik urzadzenia
+sudo mknod /dev/kz_device c <numer_z_polecenia_wczesniej> 0
+sudo chmod 666 /dev/name_driver (jak bedzie potrzeba)
+
+8. Testujesz urzadzenie (To mamy nagrać)
+	Poprawna odpowiedz 
+  	echo -n "Kacper Zawada" > /dev/kz_device
+    cat /dev/kz_device 
+    [powinien wyświetlić sie twój numer]
+  
+  Zła odpowiedz
+  	echo -n "Przegrałem w gre" > /dev/kz_device
+    cat /dev/kz_device
+    [powinno sie nic nie wyswietlac]
+    
+9. Koniec zadania. Opcjonalnie można wyczyścić komputer żeby komuś nie rozjebać zadania potem 
+sudo rmod kz_driver
+sudo rm /dev/kz_device
