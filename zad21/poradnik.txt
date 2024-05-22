@@ -1,0 +1,27 @@
+1. Kopiujesz OpenWRT do siebie
+cp -r /omap/openwrt /home/user/openwrt
+
+2. Uruchamiasz konfigurator
+cd /home/user/openwrt
+make menuconfig
+
+3. Włączasz DEVMEM w konfiguracji (zaznaczasz to w opcjach)
+"Znajdź i włącz DEVMEM w obu miejscach (ustaw w tryb [ * ], co oznacza, że moduł będzie wkompilowany w jądro"
+
+4. Kompilujesz 
+make -j30
+
+5. Wyłaczasz zasilanie płytki, wyciagasz karte microSD i wkładasz do komputera, odpalasz terminal i wpisujesz to 
+cd /home/user/openwrt/bin/targets/omap/generic/
+zcat openwrt-22.03.6-omap-ti_am335x-bone-black-ext4-sdcard.img.gz | dd of=/dev/sdb bs=8M; sync
+
+6. Wkładasz karte, do płytki, właczasz zasilanie i podpinasz do kompa
+
+7. Standardowo kopiujesz Makefile do swojego folderu
+cp /omap/device /omap/program 
+
+8. Wklejasz program jako prog.c piszesz:
+make
+telnet omap
+cd /home/twoj_folder
+sudo ./prog
