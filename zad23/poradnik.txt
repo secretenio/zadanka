@@ -1,0 +1,17 @@
+1. kopiujecie z /omap/module pliki:
+    - prepare
+    - Makefile
+    - prog.c
+
+2. Zamieniacie tresc prog.c z tym 
+
+3. piszecie:
+    - . ./prepare
+    - make
+    - telnet omap
+    - cd /home/*sciezka*
+    - insmod *nazwapliku*.ko
+    - klikacie se przycisk
+    - rmmod *nazwapliku*
+    - dmesg
+    
