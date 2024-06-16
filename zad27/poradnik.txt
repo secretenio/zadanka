@@ -1,0 +1,14 @@
+1. Przegrywacie sobie pliki z omap/module do /omap/device
+2. Edytujecie plik .c (jeżeli nie ma tam to tworzycie nowy z kodem niżej)
+3. robicie make 
+4. Komendy:
+	telnet omap
+  sudo insmod waszplik.ko
+  dmesg | tail  (i szukacie napisu "I was assigned major number [majornumber]")
+  sudo mknod /dev/char_device c [major_number] 0  // tu wpisujecie ten majornumber z pkt wyzej
+	sudo chmod 666 /dev/char_device
+5. Testowanie
+  echo "hello world" > /dev/char_device
+	dmesg | tail // Powinno wyświetlić HELLO WORLD
+6. Usuwanie modułu 
+sudo rmmod char_driver

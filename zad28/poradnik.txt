@@ -1,0 +1,17 @@
+1. Tak samo kopiowanie plików z module
+2. Edycja pliku .c lub stworzenie nowego z poniższym kodem 
+3. Kompilacja przez make
+4. Komendy:
+	telnet omap
+  sudo insmod nazwapliku.ko
+  dmesg | tail  // sprawdzacie znowu ten major number
+  sudo mknod /dev/sterownik c [majornumber] 0
+	sudo chmod 666 /dev/sterownik
+5. Sterowanie kodem 
+echo "1" > /dev/sterownik (co sekunde wysyła komunikat w dmesg)
+echo "4" > /dev/sterownik (co 4 sekundy)
+echo "8" > /dev/sterownik (co 8 sekund)
+Sprawdza sie to po prostu dmesg
+
+6. Usuniecie modulu
+sudo rmmod nazwamodulu

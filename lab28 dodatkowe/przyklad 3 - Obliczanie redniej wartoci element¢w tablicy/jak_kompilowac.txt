@@ -1,0 +1,6 @@
+WERSJA Z OPENMP
+gcc -fopenmp -o nazwapliku nazwapliku.c -lrt
+
+WERSJA BEZ OPENMP
+gcc -o nazwapliku nazwapliku.c -lrt
+
