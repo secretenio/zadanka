@@ -1,0 +1,1 @@
+Po prostu kompilacja albo make albo "gcc prog.c -o prog" w zależności gdzie bedzie chciał żeby działało i uruchomic

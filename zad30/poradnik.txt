@@ -1,0 +1,13 @@
+1. Skopiuj pliki z /omap/module, zamień wnętrze pliku.c na module.c i skompiluj
+2. Skopiuj pliki z /omap/program, zamień prog.c z prog.c i skompiluj
+3. Komendy:
+    telnet omap
+    insmod module.ko 
+    ./prog
+    rmmod module
+
+JAK NIE DZIAŁA
+1. insmod module.ko
+2. dmesg    //przeczytac major number przypisany do modulu
+3. sudo mknod /dev/simple_driver c <major_num> 0
+4. ./prog   //tera powinno dzialac
